@@ -51,7 +51,7 @@ At line 48 is an unsafe block. This goes against the safety
 features. The code checks that the argument string is 
 less than 200 characters (not bytes).
 
-```{r, attr.source='.numberLines startFrom="40"'}
+```rust
 fn save_data(dest: &mut [u8], src: &String) {
     if src.chars().count() > INPUT_SIZE {
         println!("Oups, something went wrong... Please try again later.");
@@ -72,7 +72,7 @@ fn save_data(dest: &mut [u8], src: &String) {
 The `save_data(dest: &mut [u8], src: &String)` function is
 called by `present_survey(feedback: &mut Feedback)`:
 
-```{r, attr.source='.numberLines startFrom="69"'}
+```rust
 fn present_survey(feedback: &mut Feedback) {
     // ...
     print!("Statement (max 200 characters): ");
@@ -85,7 +85,7 @@ fn present_survey(feedback: &mut Feedback) {
 
 The `Feedback` structure contains an array of 200 bytes:
 
-```{r, attr.source='.numberLines startFrom="3"'}
+```rust
 const INPUT_SIZE: usize = 200;
 const PIN_ENTRY_ENABLED: bool = false;
 
@@ -115,7 +115,7 @@ We can expect something similar to this with our Rust program:
 - 4-bytes for login pin
 - Return addresses
 
-```{r, attr.source='.numberLines startFrom="125"'}
+```rust
 let mut feedback = Feedback {
     statement: [0_u8; 200],
     submitted: false,
@@ -203,7 +203,7 @@ Sure enough, they matched.
 
 With this knowledge, I now needed to overwrite the
 pin value with 123456 as required by the config function:
-```{r, attr.source='.numberLines startFrom="3"'}
+```rust
 fn present_config_panel(pin: &u32) {
     use std::process::{self, Stdio};
     
