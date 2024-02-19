@@ -17,7 +17,7 @@ So as you can see by the title of this PWN, "ROP" means return oriented programm
 <details>
   <summary>Another quick disclaimer</summary>
 
-  This PWN is not actually a ROP. 
+  This PWN is actually **NOT** a ROP. 
   
   Yeah. 
   
@@ -45,10 +45,11 @@ So as you can see by the title of this PWN, "ROP" means return oriented programm
 I started off by looking through the provided `oxidized-rop.rs` file.
 
 The only thing I knew about Rust prior to this are the insane 
-safety features, namely `unsafe` code.
+safety features. 
 
-At line 48 is an unsafe block. The code checks that the 
-argument string is less than 200 characters (not bytes).
+At line 48 is an unsafe block. This goes against the safety 
+features. The code checks that the argument string is 
+less than 200 characters (not bytes).
 
 ```{r, attr.source='.numberLines startFrom="40"'}
 fn save_data(dest: &mut [u8], src: &String) {
@@ -253,4 +254,12 @@ Make sure your interfaces are correct (I did host-only on VMnet1).
 I ran the Python script first, then started the client:
 `nc -e /home/kali/oxidized/oxidized-rop 192.168.190.1 2463`
 
+https://github.com/PeriodicSeizures/CTF-Writeups/blob/main/HTB/Challenges/Pwn/Oxidized%20ROP/exploit.py
 
+I experimented with things and used Wireshark to perfect the 
+payload and such.
+
+https://github.com/PeriodicSeizures/CTF-Writeups/blob/main/HTB/Challenges/Pwn/Oxidized%20ROP/exploit.pcapng
+
+Feel free to experiment with the script as I added some debug
+stuff during my tests that are commented out.
