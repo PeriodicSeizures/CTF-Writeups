@@ -254,7 +254,7 @@ Make sure your interfaces are correct (I did host-only on VMnet1).
 I ran the Python script first, then started the client:
 `nc -e /home/kali/oxidized/oxidized-rop 192.168.190.1 2463`
 
-https://github.com/PeriodicSeizures/CTF-Writeups/blob/main/HTB/Challenges/Pwn/Oxidized%20ROP/exploit.py
+https://github.com/PeriodicSeizures/CTF-Writeups/blob/43046f0deb92135bfaaf3a64b9efcbd6cfb4c1c7/HTB/Challenges/Pwn/Oxidized%20ROP/exploit.py#L33-L41
 
 I experimented with things and used Wireshark to perfect the 
 payload and such.
