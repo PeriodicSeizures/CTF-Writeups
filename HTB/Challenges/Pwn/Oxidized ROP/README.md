@@ -135,6 +135,7 @@ Open the program with EDB `edb --run oxodized-rop`.
 I'm not going to go through the specifics, but I set a breakpoint 
 immediately after the stack address for the local variable `login_pin`
 was set to `0x11223344` during its definition in `main()`:
+
 ![text](stack_starting_pin.png).
 
 I did a symbol search for `savedata`, and set a breakpoint 
@@ -146,6 +147,7 @@ In the console input, I inputted `1` for the survey.
 Generate a pattern with 
 `/usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 200`
 to understand how our input is transformed and overflows:
+
 ![text](create_pattern.png)
 
 I pass the generated pattern through the EDB console (a program 
